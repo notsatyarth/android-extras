@@ -11,16 +11,19 @@ overdraw_command_map = ['on' : 'show',  'off' : 'false', 'deut' : 'show_deuteran
 overdraw_command_map_preKitKat = ['on' : 'true',  'off' : 'false']
 show_updates_map = ['on' : '0',  'off' : '1']
 battery_map=['on':'1','off':'0']
+deeplink_map=[]
+app_name="com.app.wooplr"
 
 
 command_map = ['gfx' : gfx_command_map,
                'layout' : layout_command_map,
                'overdraw' : overdraw_command_map,
                'updates' : show_updates_map,
-               'battery': battery_map]
-            
+               'battery': battery_map,
+               'deeplink':deeplink_map]
 
-verbose = true
+
+verbose = false
 
 def cli = new CliBuilder(usage:'devtools.groovy command option')
 cli.with {
@@ -92,6 +95,10 @@ switch ( command ) {
         adbcmd = "shell su -c ' echo "+battery_map[option]+" > /sys/devices/qpnp-charger-ee236a00/power_supply/battery/charging_enabled'"
         executeADBCommand(adbcmd)
         break
+    case "deeplink":
+        adbcmd="shell am start -a android.intent.action.VIEW -d "+ option +" "+app_name
+        executeADBCommand(adbcmd)
+        break
     default:
         printHelp("could not find the command $command you provided")
 }
@@ -144,7 +151,7 @@ void executeInShellCommand(String command){
         proc = adbConnect.execute()
         proc.waitFor()
         }
-    
+
 }
 
 
