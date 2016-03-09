@@ -12,6 +12,7 @@ overdraw_command_map_preKitKat = ['on' : 'true',  'off' : 'false']
 show_updates_map = ['on' : '0',  'off' : '1']
 battery_map=['on':'1','off':'0']
 deeplink_map=[]
+text_map=[]
 app_name="com.app.wooplr"
 
 
@@ -20,7 +21,8 @@ command_map = ['gfx' : gfx_command_map,
                'overdraw' : overdraw_command_map,
                'updates' : show_updates_map,
                'battery': battery_map,
-               'deeplink':deeplink_map]
+               'deeplink':deeplink_map,
+               'text':text_map]
 
 
 verbose = false
@@ -99,6 +101,9 @@ switch ( command ) {
         adbcmd="shell am start -a android.intent.action.VIEW -d "+ option +" "+app_name
         executeADBCommand(adbcmd)
         break
+    case "text":
+        adbcmd="shell input text "+option
+        executeADBCommand(adbcmd)
     default:
         printHelp("could not find the command $command you provided")
 }
