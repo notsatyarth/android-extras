@@ -104,6 +104,7 @@ switch ( command ) {
     case "text":
         adbcmd="shell input text "+option
         executeADBCommand(adbcmd)
+        break
     default:
         printHelp("could not find the command $command you provided")
 }
