@@ -13,6 +13,7 @@ show_updates_map = ['on' : '0',  'off' : '1']
 battery_map=['on':'1','off':'0']
 deeplink_map=[]
 text_map=[]
+clear_map=[]
 app_name="com.app.wooplr"
 
 
@@ -22,7 +23,8 @@ command_map = ['gfx' : gfx_command_map,
                'updates' : show_updates_map,
                'battery': battery_map,
                'deeplink':deeplink_map,
-               'text':text_map]
+               'text':text_map,
+               'clear':clear_map]
 
 
 verbose = false
@@ -103,6 +105,10 @@ switch ( command ) {
         break
     case "text":
         adbcmd="shell input text "+option
+        executeADBCommand(adbcmd)
+        break
+    case "clear":
+        adbcmd="shell pm clear "+option
         executeADBCommand(adbcmd)
         break
     default:
