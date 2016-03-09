@@ -14,6 +14,7 @@ battery_map=['on':'1','off':'0']
 deeplink_map=[]
 text_map=[]
 clear_map=[]
+launch_map=[]
 app_name="com.app.wooplr"
 
 
@@ -24,7 +25,8 @@ command_map = ['gfx' : gfx_command_map,
                'battery': battery_map,
                'deeplink':deeplink_map,
                'text':text_map,
-               'clear':clear_map]
+               'clear':clear_map,
+               'launch':launch_map]
 
 
 verbose = false
@@ -109,6 +111,10 @@ switch ( command ) {
         break
     case "clear":
         adbcmd="shell pm clear "+option
+        executeADBCommand(adbcmd)
+        break
+    case "launch":
+        adbcmd="shell monkey -p "+option+"  -c android.intent.category.LAUNCHER 1"
         executeADBCommand(adbcmd)
         break
     default:
