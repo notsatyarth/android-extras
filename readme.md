@@ -6,11 +6,11 @@ too new.All you have to do is setup your groovy path and add the following to
 you config files:
 
 
-(% highlight bash %}
+```
 devtools(){
     groovy /path/to/repo $*
 }
-{% endhighlight %}
+```
 
 
 ##Toggle Charging:
