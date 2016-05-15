@@ -1,20 +1,21 @@
-Based on [dhelleberg's androidscripts repo][1].
-Its not a fork because of the lack of a brew dependecy
+This project started out of just the lack of desire to repeat monotonous
+tasks which dont really take more than a second.Its a simple wrapper
+around adb with few long commands give much shorter forms. There is a groovy
+dependency right now which i hope to remove some day[^1].Its really not anything
+too new.All you have to do is setup your groovy path and add the following to
+you config files:
 
-Just add the following block to your bash/zsh config (I use zsh).
 
-```
+(% highlight bash %}
 devtools(){
     groovy /path/to/repo $*
 }
-```
-
-Featureset:
-- the [devtools][2] of the original script.
-- Toggle charging mode for my Device(One Plus One)**Requires Root**
-    -  Tweak the settings based on your particular device or phone.
-    -  xda should be able to give you the location of the `charging_enabled` file on your device.
+{% endhighlight %}
 
 
-[1]:https://github.com/dhelleberg/android-scripts/
-[2]:https://github.com/dhelleberg/android-scripts/#devtools
+##Toggle Charging:
+**Requires Root**
+
+Toggle charging mode for my Device(One Plus One)
+       - Tweak the settings based on your particular device or phone.
+       - xda should be able to give you the location of the charging_enabled file on your device.

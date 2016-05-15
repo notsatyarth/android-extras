@@ -11,11 +11,11 @@ overdraw_command_map = ['on' : 'show',  'off' : 'false', 'deut' : 'show_deuteran
 overdraw_command_map_preKitKat = ['on' : 'true',  'off' : 'false']
 show_updates_map = ['on' : '0',  'off' : '1']
 battery_map=['on':'1','off':'0']
-deeplink_map=['enter the deeplink for the $app_name added']
-text_map=['enter the text to input']
-clear_map=['clear app data ,provide app package name']
-launch_map=['launch app by providing package name']
-wifi_connect_map=['ipconn add ip address to connect']
+deeplink_map=['enter the deeplink for the $app_name added':0]
+text_map=['enter the text to input':0]
+clear_map=['clear app data ,provide app package name':0]
+launch_map=['launch app by providing package name':0]
+wifi_connect_map=['ipconn add ip address to connect':0]
 app_name="com.app.wooplr"
 
 
