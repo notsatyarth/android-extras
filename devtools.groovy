@@ -16,6 +16,7 @@ text_map=['enter the text to input':0]
 clear_map=['clear app data ,provide app package name':0]
 launch_map=['launch app by providing package name':0]
 wifi_connect_map=['ipconn add ip address to connect':0]
+screenshot_map=['filename for screenshot ,path is on desktop':0]
 app_name="com.gojek.app.staging"
 
 
@@ -28,7 +29,8 @@ command_map = ['gfx' : gfx_command_map,
                'text':text_map,
                'clear':clear_map,
                'launch':launch_map,
-               'ipconn':wifi_connect_map]
+               'ipconn':wifi_connect_map,
+               'screenshot':screenshot_map]
 
 
 verbose = false
@@ -121,6 +123,10 @@ switch ( command ) {
         break
     case "ipconn":
       adbcmd="connect "+option
+      executeADBCommand(adbcmd)
+      break
+    case "screenshot":
+      adbcmd="screencap -p  > ~/Desktop/"+option+".png"
       executeADBCommand(adbcmd)
       break
     default:
