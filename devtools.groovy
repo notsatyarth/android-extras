@@ -17,6 +17,7 @@ clear_map=['clear app data ,provide app package name':0]
 launch_map=['launch app by providing package name':0]
 wifi_connect_map=['ipconn add ip address to connect':0]
 screenshot_map=['filename for screenshot ,path is on desktop':0]
+debug_launch_map=['app_package':0]
 app_name="com.gojek.app.staging"
 
 
@@ -30,6 +31,7 @@ command_map = ['gfx' : gfx_command_map,
                'clear':clear_map,
                'launch':launch_map,
                'ipconn':wifi_connect_map,
+               'debuglaunch':debug_launch_map,
                'screenshot':screenshot_map]
 
 
@@ -127,6 +129,10 @@ switch ( command ) {
       break
     case "screenshot":
       adbcmd="screencap -p  > ~/Desktop/"+option+".png"
+      executeADBCommand(adbcmd)
+      break
+    case "debuglaunch":
+      adbcmd="shell am set-debug-app -w "+option
       executeADBCommand(adbcmd)
       break
     default:
