@@ -18,7 +18,7 @@ launch_map=['launch app by providing package name':0]
 wifi_connect_map=['ipconn add ip address to connect':0]
 screenshot_map=['filename for screenshot ,path is on desktop':0]
 debug_launch_map=['app_package':0]
-app_name="com.gojek.app.staging"
+app_name="com.gojek.app.dev"
 
 
 command_map = ['gfx' : gfx_command_map,
