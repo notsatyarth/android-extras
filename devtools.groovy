@@ -128,7 +128,7 @@ switch ( command ) {
       executeADBCommand(adbcmd)
       break
     case "screenshot":
-      adbcmd="screencap -p  > ~/Desktop/"+option+".png"
+      adbcmd="shell screencap -p  > ~/Desktop/"+option+".png"
       executeADBCommand(adbcmd)
       break
     case "debuglaunch":
